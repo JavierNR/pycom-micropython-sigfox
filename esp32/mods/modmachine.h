@@ -25,4 +25,6 @@ extern mp_obj_t NORETURN machine_reset(void);
 extern void machine_register_pygate_sig_handler(_sig_func_cb_ptr sig_handler);
 extern void machine_pygate_set_status(machine_pygate_states_t status);
 
+extern const mp_obj_type_t esp32_ulp_type;
+
 #endif

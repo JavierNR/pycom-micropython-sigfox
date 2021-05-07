@@ -625,6 +625,7 @@ STATIC const mp_rom_map_elem_t machine_module_globals_table[] = {
     { MP_OBJ_NEW_QSTR(MP_QSTR_temperature),             (mp_obj_t)&machine_temperature_obj },
     { MP_OBJ_NEW_QSTR(MP_QSTR_flash_encrypt),           (mp_obj_t)&machine_flash_encrypt_obj },
     { MP_OBJ_NEW_QSTR(MP_QSTR_secure_boot),             (mp_obj_t)&machine_secure_boot_obj },
+    { MP_ROM_QSTR(MP_QSTR_ULP),                         MP_ROM_PTR(&esp32_ulp_type) },
 
 #ifdef PYGATE_ENABLED
     { MP_OBJ_NEW_QSTR(MP_QSTR_pygate_init),             (mp_obj_t)&machine_pygate_init_obj },
