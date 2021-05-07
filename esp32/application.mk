@@ -61,6 +61,7 @@ APP_INC += -I$(ESP_IDF_COMP_PATH)/newlib/include
 APP_INC += -I$(ESP_IDF_COMP_PATH)/newlib/platform_include
 APP_INC += -I$(ESP_IDF_COMP_PATH)/nvs_flash/include
 APP_INC += -I$(ESP_IDF_COMP_PATH)/spi_flash/include
+APP_INC += -I$(ESP_IDF_COMP_PATH)/ulp/include
 APP_INC += -I$(ESP_IDF_COMP_PATH)/esp_netif/include
 APP_INC += -I$(ESP_IDF_COMP_PATH)/tcpip_adapter/include
 APP_INC += -I$(ESP_IDF_COMP_PATH)/log/include
@@ -206,6 +207,7 @@ APP_MODS_SRC_C = $(addprefix mods/,\
 	modwlan.c \
 	modutime.c \
 	modpycom.c \
+	modulp.c \
 	moduqueue.c \
 	moduhashlib.c \
 	moducrypto.c \
@@ -448,6 +450,10 @@ APP_CAN_SRC_C = $(addprefix can/,\
 # 	magic_wand_data.c \
 # 	)
 
+APP_ULP_SRC_C = $(addprefix ulp/,\
+	ulp.o \
+	)
+
 SFX_OBJ =
 
 OBJ = $(PY_O)
@@ -458,7 +464,7 @@ OBJ += $(addprefix $(BUILD)/, $(APP_LORA_SRC_C:.c=.o) $(APP_LIB_LORA_SRC_C:.c=.o
 endif
 
 ifeq ($(BOARD), $(filter $(BOARD), LOPY4))
-OBJ += $(addprefix $(BUILD)/, $(APP_LORA_SRC_C:.c=.o) $(APP_LIB_LORA_SRC_C:.c=.o) $(APP_SX1276_SRC_C:.c=.o) $(APP_MODS_LORA_SRC_C:.c=.o))
+OBJ += $(addprefix $(BUILD)/, $(APP_LORA_SRC_C:.c=.o) $(APP_LIB_LORA_SRC_C:.c=.o) $(APP_SX1276_SRC_C:.c=.o) $(APP_MODS_LORA_SRC_C:.c=.o)) $(APP_ULP_SRC_C:.c=.o)
 endif
 
 endif
