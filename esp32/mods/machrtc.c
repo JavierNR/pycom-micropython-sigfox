@@ -35,7 +35,7 @@ uint32_t sntp_update_period = 3600000; // in ms
     The current system software allows almost 4096 to be used.
     To avoid running into issues if the system software uses more, 2048 was picked as a max length
 */
-#define MEM_USER_MAXLEN     2048
+#define MEM_USER_MAXLEN     1024//2048
 
 /******************************************************************************
  DECLARE PRIVATE DATA
