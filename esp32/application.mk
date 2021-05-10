@@ -401,7 +401,7 @@ OBJ += $(addprefix $(BUILD)/, $(APP_LORA_SRC_C:.c=.o) $(APP_LIB_LORA_SRC_C:.c=.o
 endif
 
 ifeq ($(BOARD), $(filter $(BOARD), LOPY4))
-OBJ += $(addprefix $(BUILD)/, $(APP_LORA_SRC_C:.c=.o) $(APP_LIB_LORA_SRC_C:.c=.o) $(APP_SX1276_SRC_C:.c=.o) $(APP_MODS_LORA_SRC_C:.c=.o) $(APP_ULP_SRC_C:.c=.o))
+OBJ += $(addprefix $(BUILD)/, $(APP_LORA_SRC_C:.c=.o) $(APP_LIB_LORA_SRC_C:.c=.o) $(APP_SX1276_SRC_C:.c=.o) $(APP_MODS_LORA_SRC_C:.c=.o))
 endif
 
 endif
@@ -442,6 +442,11 @@ OBJ += $(addprefix $(BUILD)/, $(APP_MAIN_SRC_C:.c=.o) $(APP_HAL_SRC_C:.c=.o) $(A
 OBJ += $(addprefix $(BUILD)/, $(APP_MODS_SRC_C:.c=.o) $(APP_STM_SRC_C:.c=.o) $(SRC_MOD:.c=.o))
 OBJ += $(addprefix $(BUILD)/, $(APP_FATFS_SRC_C:.c=.o) $(APP_LITTLEFS_SRC_C:.c=.o) $(APP_UTIL_SRC_C:.c=.o) $(APP_TELNET_SRC_C:.c=.o))
 OBJ += $(addprefix $(BUILD)/, $(APP_FTP_SRC_C:.c=.o) $(APP_CAN_SRC_C:.c=.o))
+
+# Add ULP support
+OBJ += $(addprefix $(BUILD)/, $(APP_ULP_SRC_C:.c=.o))
+
+
 ifeq ($(PYGATE_ENABLED), 1)
 $(info Pygate Enabled)
 OBJ += $(addprefix $(BUILD)/, $(APP_SX1308_SRC_C:.c=.o) $(APP_PYGATE_SRC_C:.c=.o))
